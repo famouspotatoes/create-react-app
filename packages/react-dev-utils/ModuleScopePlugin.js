@@ -70,6 +70,10 @@ class ModuleScopePlugin {
             );
           })
         ) {
+
+          // CRA override: do not throw error for relative exports outside of src
+          callback();
+
           const scopeError = new Error(
             `You attempted to import ${chalk.cyan(
               request.__innerRequest_request
